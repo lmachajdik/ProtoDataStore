@@ -25,14 +25,14 @@ import com.codelab.android.datastore.UserPreferences.SortOrder.*
 import com.codelab.android.datastore.data.Task
 import com.codelab.android.datastore.data.TasksRepository
 import com.codelab.android.datastore.data.UserPreferencesRepository
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 data class TasksUiModel(
     val tasks: List<Task>,
     val showCompleted: Boolean,
-    val sortOrder: UserPreferences.SortOrder
+    val sortOrder: UserPreferences.SortOrder,
+    val startupCount: Int
 )
 
 // MutableStateFlow is an experimental API so we're annotating the class accordingly
@@ -54,10 +54,11 @@ class TasksViewModel(
             tasks = filterSortTasks(
                 tasks,
                 userPreferences.showCompleted,
-                userPreferences.sortOrder
+                userPreferences.sortOrder,
             ),
             showCompleted = userPreferences.showCompleted,
-            sortOrder = userPreferences.sortOrder
+            sortOrder = userPreferences.sortOrder,
+            startupCount = userPreferences.startupCount
         )
     }
 

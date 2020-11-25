@@ -51,7 +51,9 @@ class TasksActivity : AppCompatActivity() {
         viewModel.tasksUiModel.observe(owner = this) { tasksUiModel ->
             adapter.submitList(tasksUiModel.tasks)
             updateSort(tasksUiModel.sortOrder)
+
             binding.showCompletedSwitch.isChecked = tasksUiModel.showCompleted
+            binding.counter.text = tasksUiModel.startupCount.toString()
         }
     }
 
