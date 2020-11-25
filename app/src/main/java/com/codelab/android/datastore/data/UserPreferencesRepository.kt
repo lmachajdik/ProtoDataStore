@@ -52,6 +52,12 @@ class UserPreferencesRepository private constructor(context: Context) {
             }
         }
 
+    suspend fun incrementStartupCounter() {
+        dataStore.updateData { preferences ->
+            preferences.toBuilder().setStartupCount(preferences.startupCount+1).build()
+        }
+    }
+
     suspend fun updateShowCompleted(completed: Boolean) {
         dataStore.updateData { preferences ->
             preferences.toBuilder().setShowCompleted(completed).build()

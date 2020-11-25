@@ -48,6 +48,8 @@ class TasksActivity : AppCompatActivity() {
         setupFilterListeners(viewModel)
         setupSort()
 
+        viewModel.incrementStartupCounter()
+
         viewModel.tasksUiModel.observe(owner = this) { tasksUiModel ->
             adapter.submitList(tasksUiModel.tasks)
             updateSort(tasksUiModel.sortOrder)
