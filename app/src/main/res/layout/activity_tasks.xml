@@ -66,6 +66,7 @@
             android:id="@+id/show_completed_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -88,7 +89,7 @@
             app:tint="?attr/colorOnSurface" />
 
         <com.google.android.material.chip.ChipGroup
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/row_item_margin_horizontal"
             app:singleLine="true">
@@ -109,5 +110,16 @@
                 android:text="@string/deadline"
                 app:chipBackgroundColor="?attr/colorSecondary" />
         </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/counter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0"
+            android:textAlignment="center" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
